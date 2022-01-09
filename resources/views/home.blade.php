@@ -1,27 +1,23 @@
 @extends('layouts.app')
 
 @section('content')
-<main class="sm:container sm:mx-auto sm:mt-10">
-    <div class="w-full sm:px-6">
 
-        @if (session('status'))
-            <div class="text-sm border border-t-8 rounded text-green-700 border-green-600 bg-green-100 px-3 py-4 mb-4" role="alert">
-                {{ session('status') }}
+<div class="container">
+    @foreach ($subtitulos as $subtitulo)
+        <div class="card w-75 m-auto mb-3">
+            <div class="card-body">
+                <h5 class="card-title">{{ $subtitulo->nombre }}</h5>
+                <h6 class="card-subtitle mb-2 text-muted">Subido el 27/12/2021</h6>
+                <p class="card-text">{{ $subtitulo->descripcion }}</p>
+                <a href="#" class="card-link">Bajar subtítulo</a>
+                <a href="#" class="card-link">Ver más información</a>
             </div>
-        @endif
+        </div>
+    @endforeach
 
-        <section class="flex flex-col break-words bg-white sm:border-1 sm:rounded-md sm:shadow-sm sm:shadow-lg">
-
-            <header class="font-semibold bg-gray-200 text-gray-700 py-5 px-6 sm:py-6 sm:px-8 sm:rounded-t-md">
-                Dashboard
-            </header>
-
-            <div class="w-full p-6">
-                <p class="text-gray-700">
-                    You are logged in!
-                </p>
-            </div>
-        </section>
+    <div class="d-flex justify-content-center">
+        {{ $subtitulos->links() }}
     </div>
-</main>
+</div>
+
 @endsection

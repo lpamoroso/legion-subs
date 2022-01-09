@@ -2,6 +2,7 @@
 
 namespace Database\Seeders;
 
+use App\Models\Subtitulo;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -14,8 +15,9 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        $this->call(
-            UserSeeder::class
-        );
+        $this->call([
+            UserSeeder::class,
+        ]);
+        Subtitulo::factory()->count(5000)->create();
     }
 }
