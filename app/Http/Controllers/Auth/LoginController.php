@@ -78,6 +78,8 @@ class LoginController extends Controller
         }
 
         $request->replace([
+            //En caso de error, cosa que flashee bien
+            'email_error' => $request->input('email'),
             'email' => hash('sha256', $request->input('email')),
             'password' => $request->input('password')
         ]);
