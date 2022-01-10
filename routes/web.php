@@ -17,4 +17,7 @@ Route::get('/', [App\Http\Controllers\SubtituloController::class, 'index'])->nam
 Route::get('/home', [App\Http\Controllers\SubtituloController::class, 'index'])->name('home');
 Route::get('/subtitulos', [App\Http\Controllers\SubtituloController::class, 'index'])->name('home');
 
+Route::get('/usuario/perfil', [App\Http\Controllers\UserController::class, 'show_profile'])->name('show_profile');
+Route::post('/usuario/perfil/editar', [App\Http\Controllers\UserController::class, 'edit_profile'])->name('edit_profile');
+
 Auth::routes();
