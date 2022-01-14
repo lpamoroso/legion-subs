@@ -16,6 +16,7 @@ use Illuminate\Support\Facades\Auth;
 Route::get('/', [App\Http\Controllers\SubtituloController::class, 'index'])->name('root');
 Route::get('/home', [App\Http\Controllers\SubtituloController::class, 'index'])->name('home');
 Route::get('/subtitulos', [App\Http\Controllers\SubtituloController::class, 'index'])->name('subs_home');
+Route::get('/subtitulo/{id}/detalle', [App\Http\Controllers\SubtituloController::class, 'show_details'])->name('show_details');
 
 Route::get('/usuario/perfil', [App\Http\Controllers\UserController::class, 'show_profile'])->name('show_profile');
 Route::post('/usuario/perfil/editar', [App\Http\Controllers\UserController::class, 'edit_profile'])->name('edit_profile');

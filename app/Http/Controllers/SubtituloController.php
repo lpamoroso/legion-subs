@@ -3,7 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Subtitulo;
-use Illuminate\Http\Request;
+use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class SubtituloController extends Controller
 {
@@ -14,13 +15,21 @@ class SubtituloController extends Controller
      */
     public function index()
     {
-        $subtitulos = Subtitulo::paginate(10);
+        $subtitulos = DB::table('subtitulos')->join('users', 'users.id', '=', 'subtitulos.user_id')
+                                                ->select('subtitulos.*', 'users.name')
+                                                ->paginate();
+        //$subtitulos = Subtitulo::paginate(10);
 
         return view('home', ['subtitulos' => $subtitulos]);
     }
 
-    public function detalle($id)
+    public function show_details($id)
     {
-        # code...
+        $subtitulo = DB::table('subtitulos')->join('users', 'users.id', '=', 'subtitulos.user_id')
+                                                ->select('subtitulos.*', 'users.name')
+                                                ->where('subtitulos.id', '=', $id)
+                                                ->first();
+        $subtitulo->created_at = (new Carbon($subtitulo->created_at))->format('d/m/Y');
+        return view('subtitulo.detalle', ['subtitulo' => $subtitulo]);
     }
 }
