@@ -30,4 +30,25 @@ class UserController extends Controller
 
         return redirect()->route('show_profile');
     }
+
+    public function edit_password(Request $request)
+    {
+        if (
+                (! Hash::check($request->input('current_password'), Auth::user()->password)) &&
+                (strcmp($request->input('new_password'), $request->input('confirmation_password')))
+        ) {
+            return back()->withErrors([
+                'password_error' => ['Alguna contraseña es incorrecta.']
+            ]);
+        }
+
+        $user = User::find(Auth::id());
+
+        $user->password = Hash::make($request->input('new_password'));
+        $user->save();
+
+        Auth::logout();
+
+        return redirect()->route('root');
+    }
 }
