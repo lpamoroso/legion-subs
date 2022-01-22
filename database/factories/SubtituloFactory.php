@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Facades\Storage;
 
 class SubtituloFactory extends Factory
 {
@@ -13,11 +14,17 @@ class SubtituloFactory extends Factory
      */
     public function definition()
     {
+        $nombre = $this->faker->name();
+        $descripcion = $this->faker->text();
+        Storage::disk('public')->put($nombre.'.srt', $descripcion);
+
         return [
-            'nombre' => $this->faker->name(),
-            'descripcion' => $this->faker->text(),
+            'nombre' => $nombre,
+            'descripcion' => $descripcion,
             'user_id' => 1,
             'cantidad_descargas' => random_int(0, 60000),
+            'cantidad_upvotes' => random_int(0, 60000),
+            'cantidad_downvotes' => random_int(0, 60000),
             'created_at' => now(),
         ];
     }

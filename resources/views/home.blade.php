@@ -9,7 +9,7 @@
                 <h5 class="card-title">{{ $subtitulo->nombre }}</h5>
                 <h6 class="card-subtitle mb-2 text-muted">Subido por {{ $subtitulo->name }}</h6>
                 <p class="card-text">{{ $subtitulo->descripcion }}</p>
-                <a href="#" class="card-link">Bajar subtítulo</a>
+                <a href="{{ Storage::url($subtitulo->nombre.'.srt') }}" class="card-link">Bajar subtítulo</a>
                 <a href="{{ route('show_details', $subtitulo->id) }}" class="card-link">Ver más información</a>
             </div>
         </div>

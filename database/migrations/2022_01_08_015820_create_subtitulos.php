@@ -18,6 +18,8 @@ class CreateSubtitulos extends Migration
             $table->string('nombre', 50);
             $table->text('descripcion');
             $table->integer('cantidad_descargas');
+            $table->integer('cantidad_upvotes');
+            $table->integer('cantidad_downvotes');
             $table->date('created_at');
             $table->unsignedBigInteger('user_id');
 
