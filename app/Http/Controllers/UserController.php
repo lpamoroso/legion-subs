@@ -14,6 +14,11 @@ class UserController extends Controller
         return view('user.perfil');
     }
 
+    public function show_criticas()
+    {
+        return view('user.criticas');
+    }
+
     public function edit_profile(Request $request)
     {
         if (! Hash::check($request->input('password'), Auth::user()->password)) {

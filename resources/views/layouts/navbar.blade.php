@@ -39,6 +39,7 @@
 
                         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
                             <a class="dropdown-item" href="{{ route('show_profile') }}">Mi perfil</a>
+                            <a class="dropdown-item" href="{{ route('show_criticas') }}">Mis críticas</a>
                             <a class="dropdown-item" href="{{ route('logout') }}"
                                onclick="event.preventDefault();
                                              document.getElementById('logout-form').submit();">

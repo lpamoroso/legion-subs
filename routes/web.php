@@ -19,6 +19,7 @@ Route::get('/subtitulos', [App\Http\Controllers\SubtituloController::class, 'ind
 Route::get('/subtitulo/{id}/detalle', [App\Http\Controllers\SubtituloController::class, 'show_details'])->name('show_details');
 
 Route::get('/usuario/perfil', [App\Http\Controllers\UserController::class, 'show_profile'])->name('show_profile');
+Route::get('/usuario/criticas', [App\Http\Controllers\UserController::class, 'show_criticas'])->name('show_criticas');
 Route::post('/usuario/perfil/editar', [App\Http\Controllers\UserController::class, 'edit_profile'])->name('edit_profile');
 Route::post('/usuario/password/editar', [App\Http\Controllers\UserController::class, 'edit_password'])->name('edit_password');
 

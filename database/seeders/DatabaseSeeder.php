@@ -18,6 +18,7 @@ class DatabaseSeeder extends Seeder
         $this->call([
             UserSeeder::class,
         ]);
-        Subtitulo::factory()->count(5000)->create();
+        Subtitulo::factory()->count(100)->create();
+        $this->call(CriticaSeeder::class);
     }
 }

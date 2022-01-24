@@ -2,9 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Mail\Test;
 use App\Models\Subtitulo;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Mail;
 
 class SubtituloController extends Controller
 {
@@ -18,6 +20,7 @@ class SubtituloController extends Controller
         $subtitulos = DB::table('subtitulos')->join('users', 'users.id', '=', 'subtitulos.user_id')
                                                 ->select('subtitulos.*', 'users.name')
                                                 ->paginate();
+        //Mail::to('lihueamoroso@gmail.com')->send(new Test());
         //$subtitulos = Subtitulo::paginate(10);
 
         return view('home', ['subtitulos' => $subtitulos]);
