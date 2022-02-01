@@ -14,19 +14,19 @@ class CriticaSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
+        DB::table('criticas')->insert([
                 'user_id' => 1,
                 'subtitulo_id' => 1,
                 'criticado' => true,
                 'titulo_pelicula' => 'Chernobyl Abyss (2021) [1080p] [BluRay] [5.1] [YTS.MX]',
         ]);//Critica positiva
-        DB::table('users')->insert([
+        DB::table('criticas')->insert([
                 'user_id' => 1,
                 'subtitulo_id' => 3,
                 'criticado' => true,
                 'titulo_pelicula' => '',
         ]);//Critica negativa
-        DB::table('users')->insert([
+        DB::table('criticas')->insert([
                 'user_id' => 1,
                 'subtitulo_id' => 2,
                 'criticado' => false,
